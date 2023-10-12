@@ -45,15 +45,15 @@ dist-key: prepare
 
 .PHONY: build-gortr
 build-gortr: prepare
-	go build -ldflags $(LDFLAGS) -o $(OUTPUT_GORTR) cmd/gortr/gortr.go 
+	CGO_ENABLED=0 go build -ldflags $(LDFLAGS) -o $(OUTPUT_GORTR) cmd/gortr/gortr.go 
 
 .PHONY: build-rtrdump
 build-rtrdump:
-	go build -ldflags $(LDFLAGS) -o $(OUTPUT_RTRDUMP) cmd/rtrdump/rtrdump.go 
+	CGO_ENABLED=0 go build -ldflags $(LDFLAGS) -o $(OUTPUT_RTRDUMP) cmd/rtrdump/rtrdump.go 
 
 .PHONY: build-rtrmon
 build-rtrmon:
-	go build -ldflags $(LDFLAGS) -o $(OUTPUT_RTRMON) cmd/rtrmon/rtrmon.go 
+	CGO_ENABLED=0 go build -ldflags $(LDFLAGS) -o $(OUTPUT_RTRMON) cmd/rtrmon/rtrmon.go 
 
 .PHONY: docker-gortr
 docker-gortr:
